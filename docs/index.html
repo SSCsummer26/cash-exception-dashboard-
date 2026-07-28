@@ -490,7 +490,7 @@
         <!-- Blue rounded tile background -->
         <rect x="0" y="0" width="220" height="90" rx="10" ry="10" fill="#0077C8"/>
         <!-- All letters rendered in one uniform white color for maximum legibility -->
-        <text x="12" y="68" font-family="Barlow, Arial Black, sans-serif" font-weight="900" font-size="72" fill="#FFFFFF" letter-spacing="-3">SS</text>
+        <text x="12" y="68" font-family="Barlow, Arial Black, sans-serif" font-weight="900" font-size="72" fill="#FFFFFF" letter-spacing="4">SS</text>
         <text x="108" y="68" font-family="Barlow, Arial Black, sans-serif" font-weight="900" font-size="66" fill="#FFFFFF">&amp;</text>
         <text x="158" y="68" font-family="Barlow, Arial Black, sans-serif" font-weight="900" font-size="72" fill="#FFFFFF">C</text>
       </svg>
@@ -573,8 +573,6 @@
   <div class="kpi-row">
     <div class="kpi crit"><div class="label">Critical Risk Items</div><div class="value" id="pri-crit">--</div><div class="sub">Overdue-risk score &ge; 85</div></div>
     <div class="kpi warn"><div class="label">High Risk Items</div><div class="value" id="pri-high">--</div><div class="sub">Overdue-risk score 65-84</div></div>
-    <div class="kpi info"><div class="label">Predicted Overdue (14d)</div><div class="value" id="pri-next14">--</div><div class="sub">Will breach SLA in the next 14 days</div></div>
-    <div class="kpi info"><div class="label">Predicted Overdue (30d)</div><div class="value" id="pri-next30">--</div><div class="sub">Will breach SLA in the next 30 days</div></div>
   </div>
 
   <div class="card" style="margin-bottom:20px;">
@@ -1563,8 +1561,6 @@ if (VS && VS.meta && VS.kpis) {
   const insights = D1.manager_insights || {};
   document.getElementById("pri-crit").textContent = fmtInt(kpis.critical_risk_count || 0);
   document.getElementById("pri-high").textContent = fmtInt(kpis.high_risk_count || 0);
-  document.getElementById("pri-next14").textContent = fmtInt(insights.predicted_overdue_next_14_days || 0);
-  document.getElementById("pri-next30").textContent = fmtInt(insights.predicted_overdue_next_30_days || 0);
 
   // Top 25 recommended work order (Grid.js)
   const top = (D1.action_queue || []).slice(0, 25);
